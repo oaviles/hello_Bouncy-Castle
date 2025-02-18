@@ -58,8 +58,10 @@ jobs:
     if: ${{ success() }}
     needs: qa-environment
     runs-on: ubuntu-latest  
+    
     steps:
       - name: Clear
+        run: |
          git rm -f Program.cs
          git commit -m "AI Sandbox delete Program.txt file from repository."
          git push
