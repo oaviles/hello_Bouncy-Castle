@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "rZHY1DI+HF4=",
+  "success": true,
+  "projectFilePath": "/workspaces/hello_Bouncy-Castle-Demo/hello_Bouncy-Castle-Demo.csproj",
+  "expectedPackageFiles": [
+    "/home/codespace/.nuget/packages/bouncycastle.cryptography/2.5.1/bouncycastle.cryptography.2.5.1.nupkg.sha512"
+  ],
+  "logs": []
+}
