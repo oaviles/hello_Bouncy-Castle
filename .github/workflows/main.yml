@@ -3,6 +3,7 @@ name: Build Bouncy Castle Code Sample
 on: workflow_dispatch
 
 jobs:
+  
   build:
     runs-on: ubuntu-latest
 
@@ -23,3 +24,20 @@ jobs:
 
      # - name: Run tests
      #   run: dotnet test --no-restore --verbosity normal
+  unit-test:
+    runs-on: ubuntu-latest
+    if: ${{ success() }}
+    needs: build
+    steps:
+      - name: Init Test
+        uses: oaviles/javascript_action@v1.1
+        with:
+          message: 'Init Test Running'
+
+  qa-environment:
+    if: ${{ success() }}
+    needs: [unit-test]
+    runs-on: ubuntu-latest
+    environment:
+      name: qa
+      url: 'https://delightful-flower-012038310.1.azurestaticapps.net'  
