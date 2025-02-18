@@ -61,7 +61,11 @@ jobs:
     
     steps:
       - name: Clear
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-         git rm -f ./samples_files/Program.cs
-         git commit -m "AI Sandbox delete Program.txt file from repository."
-         git push
+          FILE_PATH="Program.txt"
+          REPO_OWNER=$(echo $GITHUB_REPOSITORY | cut -d'/' -f1)
+          REPO_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f2)
+          FILE_SHA=$(curl -s -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/contents/samples_files/$FILE_PATH | jq -r .sha)
+          curl -X DELETE -H "Authorization: token $GITHUB_TOKEN" -d '{"message": "Delete Program.txt", "sha": "'$FILE_SHA'"}' https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/contents/samples_files/$FILE_PATH
