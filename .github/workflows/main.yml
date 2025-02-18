@@ -62,6 +62,6 @@ jobs:
     steps:
       - name: Clear
         run: |
-         git rm -f Program.cs
+         git rm -f ./samples_files/Program.cs
          git commit -m "AI Sandbox delete Program.txt file from repository."
          git push
