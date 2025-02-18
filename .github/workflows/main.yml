@@ -53,3 +53,13 @@ jobs:
         uses: oaviles/javascript_action@v1.1
         with:
           message: 'Deploy QA Env'
+
+  clean-repo:
+    if: ${{ success() }}
+    needs: qa-environment
+    runs-on: ubuntu-latest  
+    steps:
+      - name: Clear
+         git rm -f Program.cs
+         git commit -m "AI Sandbox delete Program.txt file from repository."
+         git push
