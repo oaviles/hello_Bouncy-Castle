@@ -41,3 +41,9 @@ jobs:
     environment:
       name: qa
       url: 'https://delightful-flower-012038310.1.azurestaticapps.net'  
+    steps:
+      - name: Deploy QA Enviroment
+        id: javascriptaction
+        uses: oaviles/javascript_action@v1.1
+        with:
+          message: 'Deploy QA Env'
