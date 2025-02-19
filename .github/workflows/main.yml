@@ -64,8 +64,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          FILE_PATH="Program.txt"
+          FILE_PATH="samples_files/Program.txt"
           REPO_OWNER=$(echo $GITHUB_REPOSITORY | cut -d'/' -f1)
           REPO_NAME=$(echo $GITHUB_REPOSITORY | cut -d'/' -f2)
-          FILE_SHA=$(curl -s -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/contents/samples_files/$FILE_PATH | jq -r .sha)
-          curl -X DELETE -H "Authorization: token $GITHUB_TOKEN" -d '{"message": "Delete Program.txt", "sha": "'$FILE_SHA'"}' https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/contents/samples_files/$FILE_PATH
+          FILE_SHA=$(curl -s -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/contents/$FILE_PATH | jq -r .sha)
+          curl -X DELETE -H "Authorization: token $GITHUB_TOKEN" -d '{"message": "Delete Program.txt", "sha": "'$FILE_SHA'"}' https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/contents/$FILE_PATH
