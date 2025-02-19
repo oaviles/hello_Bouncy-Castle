@@ -23,6 +23,7 @@ jobs:
       run: |
         echo Moving Code File genedted by AI Sanbox
         cp ./samples_files/Program.txt ./Program.cs
+        ls -l -a
     
     - uses: actions/checkout@v4
     - name: Build the Docker image
