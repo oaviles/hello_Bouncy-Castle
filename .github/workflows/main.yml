@@ -1,4 +1,4 @@
-name: Build Bouncy Castle Code Sample
+name: Building Bouncy Castle Code Sample
 
 on: workflow_dispatch
 
