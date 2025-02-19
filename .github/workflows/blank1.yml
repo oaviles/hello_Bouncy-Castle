@@ -23,3 +23,5 @@ jobs:
       - name: Run a multi-line script
         run: |
           ls -l -a
+          cd samples_files
+          ls -l -a
