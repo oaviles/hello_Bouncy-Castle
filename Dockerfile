@@ -6,6 +6,7 @@ FROM --platform=$BUILDPLATFORM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG configuration=Release
 WORKDIR /src
 COPY ["hello_Bouncy-Castle-Demo.csproj", "./"]
+COPY ["Program.cs", "./"]
 RUN dotnet restore "hello_Bouncy-Castle-Demo.csproj"
 COPY . .
 WORKDIR "/src/."
