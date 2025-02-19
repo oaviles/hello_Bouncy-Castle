@@ -73,7 +73,8 @@ jobs:
 
       - name: Clean Project
         run: |
-          cd samples_files
+          echo Cleaning
+          echo Process finish
      #     if [ -f Program.txt ]; then
      #       git rm Program.txt
      #       git commit -m "Delete temporal file Program.txt"
