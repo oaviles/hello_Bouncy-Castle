@@ -74,13 +74,13 @@ jobs:
       - name: Clean Project
         run: |
           cd samples_files
-          if [ -f Program.txt ]; then
-            git rm Program.txt
-            git commit -m "Delete temporal file Program.txt"
-            git push
-          else
-            echo "File Program.txt does not exist"
-          fi
+     #     if [ -f Program.txt ]; then
+     #       git rm Program.txt
+     #       git commit -m "Delete temporal file Program.txt"
+     #       git push
+     #     else
+     #       echo "File Program.txt does not exist"
+     #     fi
     
    #   - name: Clear
    #     env:
