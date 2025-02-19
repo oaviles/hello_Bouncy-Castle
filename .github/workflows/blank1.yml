@@ -20,11 +20,13 @@ jobs:
 
       - name: Configure Git
         run: |
-          git config --global user.name "Omar Aviles"
-          git config --global user.email "oaviles@live.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
           ls -l -a
           cd samples_files
@@ -32,7 +34,7 @@ jobs:
           if [ -f Program.txt ]; then
             git rm Program.txt
             git commit -m "Delete temporal file Program.txt"
-            git push
+            git push https://x-access-token:${PAT_TOKEN}@github.com/${{ github.repository }}.git
           else
             echo "File Program.txt does not exist"
           fi
