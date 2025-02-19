@@ -17,14 +17,12 @@ jobs:
     steps:
 
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Copy file
       run: |
         echo Moving Code File genedted by AI Sanbox
         cp ./samples_files/Program.txt ./Program.cs
-        ls -l -a
     
-    - uses: actions/checkout@v4
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag ${{ env.IMAGE_NAME }}:${{ env.TAG }}
