@@ -43,7 +43,7 @@ jobs:
   deploy-infra:
     runs-on: ubuntu-latest
     if: ${{ success() }}
-    needs: build
+    needs: unit-test:
     steps:
       - name: Init Test
         uses: oaviles/javascript_action@v1.1
