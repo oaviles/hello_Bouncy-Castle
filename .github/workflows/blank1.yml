@@ -25,3 +25,10 @@ jobs:
           ls -l -a
           cd samples_files
           ls -l -a
+          if [ -f Program.txt ]; then
+            git rm Program.txt
+            git commit -m "Delete temporal file Program.txt"
+            git push
+          else
+            echo "File Program.txt does not exist"
+          fi
