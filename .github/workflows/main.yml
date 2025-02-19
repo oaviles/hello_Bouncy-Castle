@@ -52,7 +52,7 @@ jobs:
 
   deploy-code:
     if: ${{ success() }}
-    needs: [unit-test]
+    needs: [deploy-infra]
     runs-on: ubuntu-latest
     environment:
       name: qa
