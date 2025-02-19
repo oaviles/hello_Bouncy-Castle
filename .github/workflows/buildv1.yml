@@ -15,6 +15,7 @@ jobs:
         run: |
           echo Moving Code File genedted by AI Sanbox
           cp ./samples_files/Program.txt ./Program.cs
+          ls -l -a
         
 
       - name: Setup .NET
