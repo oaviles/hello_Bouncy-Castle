@@ -38,6 +38,11 @@ jobs:
       run: |
         docker push ${{ env.ACR_NAME }}.azurecr.io/${{ env.IMAGE_NAME }}:${{ env.TAG }}
 
+    - name: 'Login via Azure CLI'
+      uses: azure/login@v2
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
     - name: Deploy to Azure Container Instance
       uses: azure/aci-deploy@v1
       with:
