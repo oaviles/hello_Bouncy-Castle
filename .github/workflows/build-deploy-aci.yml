@@ -10,7 +10,7 @@ env:
 
 jobs:
 
-  build:
+  build-and-push-code-sample:
 
     runs-on: ubuntu-latest
 
