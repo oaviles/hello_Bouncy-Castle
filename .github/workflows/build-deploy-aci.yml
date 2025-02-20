@@ -52,9 +52,9 @@ jobs:
         registry-login-server: ${{ env.ACR_NAME }}.azurecr.io
         registry-username: ${{ secrets.AZURE_REGISTRY_USERNAME }}
         registry-password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
-        dns-name-label: oa-test-001
         ports: 80
         cpu: 1   #Optional
         memory: 1   #Optional
         restart-policy: OnFailure
         location: 'east us 2'
+        #dns-name-label: oa-test-001
