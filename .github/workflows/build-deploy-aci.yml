@@ -54,4 +54,6 @@ jobs:
         registry-password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
         dns-name-label: oa-test-001
         ports: 80
+        cpu: 1   #Optional
+        memory: 0.1   #Optional
         location: 'east us 2'
