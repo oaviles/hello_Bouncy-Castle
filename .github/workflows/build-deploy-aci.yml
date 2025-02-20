@@ -58,3 +58,11 @@ jobs:
         restart-policy: OnFailure
         location: 'east us 2'
         dns-name-label: oa-test-001
+
+    - name: Get ACI Logs
+      uses: Azure/cli@v2.1.0
+      with:
+        # Specify the script here
+         inlineScript: az container logs --resource-group ${{ secrets.AZURE_RG }} --name ${{ secrets.AZURE_ACI_NAME }}
+        # Azure CLI version to be used to execute the script. If not provided, latest version is used
+              
